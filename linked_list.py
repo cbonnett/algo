@@ -45,7 +45,6 @@ class Unordered_list:
                 temp = temp.get_next()
         return found 
         
-        
     def delete(self, item):
         found = False
         next = self.head
@@ -53,7 +52,10 @@ class Unordered_list:
         while next != None and not found:
             if next.get_data() == item:
                 found = True
-                prev.set_next(next.get_next()) 
+                if next.get_next() !=None:
+                    prev.set_next(next.get_next())
+                else:
+                    prev.set_next(None) 
             else:
                 prev = next
                 next = next.get_next()
